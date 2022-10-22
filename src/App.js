@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect} from 'react';
+import { CertiSearch } from './CertiSearch'
+import { CertiCreate } from './CertiCreate'
+import { CertiAdmin } from './CertiAdmin'
+import { CertiHome } from './CertiHome'
+import { Navbar, Nav, Container, Carousel } from 'react-bootstrap'
+import { HOST, PORT } from './constant'
+const App = () => {
+  // useEffect(() => {
+  //   var requestOptions = {
+  //     method: 'GET',
+  //     redirect: 'follow'
+  //   };
+    
+  //   fetch(`http://${HOST}:${PORT}/dilithium`, requestOptions)
+  //     .then(response => response.text())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error));
+  // }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="home">Trang chủ</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="search">Tìm kiếm văn bằng</Nav.Link>
+              <Nav.Link href="create">Tạo văn bằng</Nav.Link>
+              <Nav.Link href="admin">Admin</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Routes>
+
+        <Route exact path="/" element={<CertiHome />} />
+        <Route exact path="/home" element={<CertiHome />} />
+        <Route exact path="/search" element={<CertiSearch />} />
+        <Route exact path="/create" element={<CertiCreate />} />
+        <Route exact path="/admin" element={<CertiAdmin />} />
+      </Routes>
+      <div className="App"></div>
+    </Router >
   );
 }
-
 export default App;
