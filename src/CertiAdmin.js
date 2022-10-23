@@ -1,6 +1,6 @@
 import './App.css'
-import { useState, useEffect, useRef } from 'react';
-import { Button, Table, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Button, Table } from 'react-bootstrap';
 
 import {
     HOST, PORT
@@ -8,13 +8,6 @@ import {
 
 export const CertiAdmin = () => {
     const [ceftiList, setCeftiList] = useState([])
-    const [ceftiName, setCertiName] = useState("")
-    const [ceftiGender, setCertiGender] = useState("Name")
-    const [ceftiBirthday, setCertiBirthday] = useState("")
-    const [ceftiSpec, setCertiSpec] = useState("SE")
-    const [ceftiGrade, setCertiGrade] = useState("Good")
-    const [ceftiCompleteday, setCertiCompleteday] = useState("")
-    const [showTooltip, setShowTooltip] = useState(false);
     //const targetCopy = useRef(null);
     useEffect(() => {
         const interval = setInterval(() => {

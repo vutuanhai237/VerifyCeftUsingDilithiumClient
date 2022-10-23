@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react';
-import { Button, Table, Form, Col, Row } from 'react-bootstrap';
+import { Button, Form, Col, Row } from 'react-bootstrap';
 
 import {
     HOST, PORT
@@ -14,7 +14,7 @@ export const CertiCreate = () => {
     const [ceftiGrade, setCertiGrade] = useState("Good")
     const [ceftiCompleteday, setCertiCompleteday] = useState("")
     const createCefti = () => {
-        if (ceftiName == "" || ceftiBirthday == "" || ceftiCompleteday == "") {
+        if (ceftiName === "" || ceftiBirthday === "" || ceftiCompleteday === "") {
             window.alert("Hãy nhập đầy đủ các thông tin");
             return;
         }
@@ -67,7 +67,7 @@ export const CertiCreate = () => {
 
                 <Form.Group as={Col} controlId="formGender">
                     <Form.Label>Giới tính</Form.Label>
-                    <Form.Select aria-label="Giới tính" onChange={e => setCertiGender(e.target.value == 1 ? "Nam" : "Nữ")} >
+                    <Form.Select aria-label="Giới tính" onChange={e => setCertiGender(e.target.value === 1 ? "Nam" : "Nữ")} >
                         <option value="1">Nam</option>
                         <option value="2">Nữ</option>
                     </Form.Select>
@@ -90,7 +90,7 @@ export const CertiCreate = () => {
 
                 <Form.Group as={Col} controlId="fromSpec">
                     <Form.Label>Chuyên ngành</Form.Label>
-                    <Form.Select aria-label="Chuyên ngành" onChange={e => setCertiSpec(e.target.value == 1 ? "SE" : "CS")} >
+                    <Form.Select aria-label="Chuyên ngành" onChange={e => setCertiSpec(e.target.value === 1 ? "SE" : "CS")} >
                         <option value="1">SE</option>
                         <option value="2">CS</option>
                     </Form.Select>
@@ -98,7 +98,7 @@ export const CertiCreate = () => {
 
                 <Form.Group as={Col} controlId="formGrade">
                     <Form.Label>Xếp loại</Form.Label>
-                    <Form.Select aria-label="Xếp loại" onChange={e => setCertiGrade(e.target.value == 1 ? "Good" : "Excellent")} >
+                    <Form.Select aria-label="Xếp loại" onChange={e => setCertiGrade(e.target.value === 1 ? "Good" : "Excellent")} >
                         <option value="1">Good</option>
                         <option value="2">Excellent</option>
                     </Form.Select>

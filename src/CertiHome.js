@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import { Button, Table, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import {
     HOST, PORT
@@ -19,7 +19,7 @@ export const CertiHome = () => {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:8080/dilithium/publickey", requestOptions)
+        fetch(`http://${HOST}:${PORT}/dilithium/publickey`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 setPublicKey(result)
