@@ -4,6 +4,7 @@ import { CertiSearch } from './CertiSearch'
 import { CertiCreate } from './CertiCreate'
 import { CertiAdmin } from './CertiAdmin'
 import { CertiHome } from './CertiHome'
+import { CertiSign } from './CertiSign'
 import { Navbar, Nav, Container, Carousel } from 'react-bootstrap'
 import { HOST, PORT } from './constant'
 const App = () => {
@@ -29,7 +30,8 @@ const App = () => {
             <Nav className="me-auto">
               <Nav.Link href="search">Tìm kiếm văn bằng</Nav.Link>
               <Nav.Link href="create">Tạo văn bằng</Nav.Link>
-              <Nav.Link href="admin">Admin</Nav.Link>
+              <Nav.Link href="admin">Quản lý văn bằng</Nav.Link>
+              <Nav.Link href="sign">Ký văn bằng</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -41,6 +43,7 @@ const App = () => {
         <Route exact path="/search" element={<CertiSearch />} />
         <Route exact path="/create" element={<CertiCreate />} />
         <Route exact path="/admin" element={<CertiAdmin />} />
+        <Route exact path="/sign" element={<CertiSign />} />
       </Routes>
       <div className="App"></div>
     </Router >

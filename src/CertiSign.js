@@ -6,7 +6,7 @@ import {
     HOST, PORT
 } from './constant'
 
-export const CertiAdmin = () => {
+export const CertiSign = () => {
     const [ceftiList, setCeftiList] = useState([])
     const [ceftiName, setCertiName] = useState("")
     const [ceftiGender, setCertiGender] = useState("Name")
@@ -40,13 +40,14 @@ export const CertiAdmin = () => {
             .catch(error => console.log('error', error))
     }
 
-    const deleteCertificate = (id) => {
+  
+    const signCertificate = (id) => {
         var requestOptions = {
-            method: 'DELETE',
+            method: 'GET',
             redirect: 'follow'
         };
 
-        fetch(`http://${HOST}:${PORT}/certificate/${id}`, requestOptions)
+        fetch(`http://${HOST}:${PORT}/certificate/sign/${id}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)
@@ -55,7 +56,13 @@ export const CertiAdmin = () => {
             .catch(error => console.log('error', error));
     }
 
-    
+    const copyClipboard = (text) => {
+        navigator.clipboard.writeText(text)
+        setShowTooltip(true)
+        window.setTimeout(function () {
+            setShowTooltip(false)
+        }, 2000);
+    }
     return <div className='App'>
        
 
@@ -77,11 +84,28 @@ export const CertiAdmin = () => {
                             <td>{e.name}</td>
                             <td>{e.signature == null ? "Chưa ký" : "Đã ký"}</td>
                             <td>
-                                <Button className="margin-right" onClick={() => deleteCertificate(e.id)} variant="danger">
-                                    Xóa
-                                </Button>
+                            
 
-                              
+                                {e.signature == null && <Button className="signButton" onClick={() => signCertificate(e.id)} variant="warning">
+                                    Ký
+                                </Button>}
+
+                                {e.signature != null &&
+
+                                    <OverlayTrigger 
+                                        key='right'
+                                        placement='right'
+                                        overlay={
+                                            <Tooltip >
+                                                Đã sao chép
+                                            </Tooltip>
+                                        }
+                                    >
+
+
+                                        <Button className="copySignButton" onClick={() => { copyClipboard(e.signature) }} variant="success">
+                                            Sao chép chữ ký
+                                        </Button></OverlayTrigger>}
                             </td>
                         </tr>
                     })
