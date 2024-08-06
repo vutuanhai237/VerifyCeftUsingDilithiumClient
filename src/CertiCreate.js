@@ -15,7 +15,7 @@ export const CertiCreate = () => {
     const [ceftiCompleteday, setCertiCompleteday] = useState("")
     const createCefti = () => {
         if (ceftiName === "" || ceftiBirthday === "" || ceftiCompleteday === "") {
-            window.alert("Hãy nhập đầy đủ các thông tin");
+            window.alert("Please fill all the fields");
             return;
         }
 
@@ -47,34 +47,34 @@ export const CertiCreate = () => {
             .then(result => {
                 console.log(result)
                 if (result != null) {
-                    window.alert("Thêm mới văn bằng thành công");
+                    window.alert("Add new certificate successfully!");
                     window.location.reload();
                 } else {
-                    window.alert("Thêm mới văn bằng thất bại");
+                    window.alert("Add new certificate failed!");
                 }
             })
             .catch(error => console.log('error', error));
     }
     return <div className="App">
         <Form>
-            <h2>Tạo văn bằng</h2>
+            <h2>Create cerificate</h2>
             <Row className="mb-3 margin-top">
                 <Form.Group as={Col} controlId="formName">
-                    <Form.Label>Họ tên</Form.Label>
-                    <Form.Control placeholder="Nhập tên" onChange={e => setCertiName(e.target.value)} />
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control placeholder="Please enter name" onChange={e => setCertiName(e.target.value)} />
 
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGender">
-                    <Form.Label>Giới tính</Form.Label>
-                    <Form.Select aria-label="Giới tính" onChange={e => setCertiGender(e.target.value === 1 ? "Nam" : "Nữ")} >
-                        <option value="1">Nam</option>
-                        <option value="2">Nữ</option>
+                    <Form.Label>Sex</Form.Label>
+                    <Form.Select aria-label="Sex" onChange={e => setCertiGender(e.target.value === 1 ? "Male" : "Female")} >
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
                     </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formBirthday">
-                    <Form.Label>Ngày sinh</Form.Label>
-                    <Form.Control placeholder="Ngày sinh" onChange={e => setCertiBirthday(e.target.value)} />
+                    <Form.Label>Birthday</Form.Label>
+                    <Form.Control placeholder="Birthday" onChange={e => setCertiBirthday(e.target.value)} />
 
                 </Form.Group>
 
@@ -83,29 +83,29 @@ export const CertiCreate = () => {
 
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formcompeleteday">
-                    <Form.Label>Ngày tốt nghiệp</Form.Label>
-                    <Form.Control placeholder="Điền ngày tốt nghiệp" onChange={e => setCertiCompleteday(e.target.value)} />
+                    <Form.Label>Graduation date</Form.Label>
+                    <Form.Control placeholder="Graduation date" onChange={e => setCertiCompleteday(e.target.value)} />
 
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="fromSpec">
-                    <Form.Label>Chuyên ngành</Form.Label>
-                    <Form.Select aria-label="Chuyên ngành" onChange={e => setCertiSpec(e.target.value === 1 ? "SE" : "CS")} >
+                    <Form.Label>Specilization</Form.Label>
+                    <Form.Select aria-label="Specilization" onChange={e => setCertiSpec(e.target.value === 1 ? "SE" : "CS")} >
                         <option value="1">SE</option>
                         <option value="2">CS</option>
                     </Form.Select>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGrade">
-                    <Form.Label>Xếp loại</Form.Label>
-                    <Form.Select aria-label="Xếp loại" onChange={e => setCertiGrade(e.target.value === 1 ? "Good" : "Excellent")} >
+                    <Form.Label>Grade</Form.Label>
+                    <Form.Select aria-label="Grade" onChange={e => setCertiGrade(e.target.value === 1 ? "Good" : "Excellent")} >
                         <option value="1">Good</option>
                         <option value="2">Excellent</option>
                     </Form.Select>
                 </Form.Group>
             </Row>
                 <Button variant="primary" onClick={() => createCefti()}>
-                    Lưu
+                    Save
                 </Button>
         </Form>
 

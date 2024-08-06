@@ -24,14 +24,14 @@ const App = () => {
     <Router>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="home">Trang chủ</Navbar.Brand>
+          <Navbar.Brand href="home">Home page</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="search">Tìm kiếm văn bằng</Nav.Link>
-              <Nav.Link href="create">Tạo văn bằng</Nav.Link>
-              <Nav.Link href="admin">Quản lý văn bằng</Nav.Link>
-              <Nav.Link href="sign">Ký văn bằng</Nav.Link>
+              <Nav.Link href="search">Search cerificate</Nav.Link>
+              <Nav.Link href="create">Create cerificate</Nav.Link>
+              <Nav.Link href="admin">Admin</Nav.Link>
+              <Nav.Link href="sign">Sign cerificate</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

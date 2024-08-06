@@ -60,14 +60,14 @@ export const CertiSign = () => {
     return <div className='App'>
        
 
-        <h2>Danh sách văn bằng</h2>
+        <h2>List certificate</h2>
         <Table className="margin-top" responsive>
             <thead>
                 <tr>
-                    <th>Số hiệu</th>
-                    <th>Họ tên</th>
-                    <th>Tình trạng văn bằng</th>
-                    <th>Thao tác</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,12 +76,12 @@ export const CertiSign = () => {
                         return <tr key={e.id}>
                             <td>{e.id}</td>
                             <td>{e.name}</td>
-                            <td>{e.signature == null ? "Chưa ký" : "Đã ký"}</td>
+                            <td>{e.signature == null ? "Unsigned" : "Signed"}</td>
                             <td>
                             
 
                                 {e.signature == null && <Button className="signButton" onClick={() => signCertificate(e.id)} variant="warning">
-                                    Ký
+                                    Sign
                                 </Button>}
 
                                 {e.signature != null &&
@@ -91,14 +91,14 @@ export const CertiSign = () => {
                                         placement='right'
                                         overlay={
                                             <Tooltip >
-                                                Đã sao chép
+                                                Copied
                                             </Tooltip>
                                         }
                                     >
 
 
                                         <Button className="copySignButton" onClick={() => { copyClipboard(e.signature) }} variant="success">
-                                            Sao chép chữ ký
+                                            Copy signature
                                         </Button></OverlayTrigger>}
                             </td>
                         </tr>

@@ -27,13 +27,13 @@ export const CertiHome = () => {
             .catch(error => console.log('error', error));
     }
     return <div className='App'>
-        <h2>Khóa công khai của hiệu trưởng</h2>
+        <h2>Public key from the president</h2>
         <text className = "margin-top">
             {publicKey.substring(0, 50) + " ..."}
         </text>
         <br/>
         <Button className = "margin-top" onClick={() => { navigator.clipboard.writeText(publicKey) }} variant="success">
-            Sao chép khóa
+            Copy key
         </Button>
     </div>
 }
